@@ -1,11 +1,11 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
-    author: `Kyle Mathews`,
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
+    title: `Kathryn Lovell`,
+    author: `Kathryn Lovell`,
+    description: `Frontend Smith. Managing where Art, Science & Craft meet.`,
+    siteUrl: `https://kathrynlovell.tech/`,
     social: {
-      twitter: `kylemathews`,
+      linkedin: `kathryn-lovell-688845112`,
     },
   },
   plugins: [
@@ -45,6 +45,7 @@ module.exports = {
         ],
       },
     },
+    `gatsby-plugin-sass`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
@@ -57,7 +58,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
+        name: `Kathryn Lovell`,
         short_name: `GatsbyJS`,
         start_url: `/`,
         background_color: `#ffffff`,
