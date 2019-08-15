@@ -1,0 +1,15 @@
+---
+title: "Agile Project Management"
+date: "2017-09-19"
+coverImage: "advanced_raster.jpg"
+---
+
+Back in the Summer of 2015, I worked as a software engineer intern at Connecticuit-based company Pitney Bowes, specifically on the team for [MapInfo Pro](http://www.pitneybowes.com/us/location-intelligence/geographic-information-systems/mapinfo-pro.html), a fantastic location analytics engine. The team swiftly integrated me into their extremely Agile environment. Because of their dexterity, horrible, project-ending problems simply never were.
+
+At the time, Pitney Bowes was developing two separate versions of their program, the 32-bit and the 64-bit version. For some applications, particularly ones developed from the beginning with it in mind, this operating system switch is simple. But MapInfo Pro was developed long before the proliferation of 64-bit operating systems. To compound the problem, MapInfo had plenty of users who would rather keep the old 32-bit version, with the old 32-bit interface, but the release of the 64-bit marked that the program was due for a user inferface overhaul. Essentially, we had several teams working on two projects in totally different phases of development. Jira helped avoid the inevitable confusion this sort of situation entails, and kept these two projects from getting uncomfortably entangled.
+
+One of the challenges in developing software is measuring progress. Our burndown charts served as a much better measure than our time input alone. Our team wasn't perfect. Most glaringly to me, we often left tasks open because we they went untested. Had we not made that chart, would we have realized that we were even undertesting? It is a misconception to think of logs as simply a chore. Data scientists know the magnitude of insight that good recordkeeping can yield. The benefits can be surprising.
+
+Summer \`15 saw the release of MapInfo Pro 15. As that deadline neared, sprints played an important role in properly allocating resources to various release deliverables. As a contractor now, one of the biggest problems I find myself dealing with is feature creep. This can get terrifying towards the arrival of a release date. In our agreement, we iron out an exact set of features to implement with a client. This is reasonable, except I as much as anyone else fail to account for all sorts of issues that may arise. Besides, there's no way around it, some things simply have indefinite timelines. This is why sprints are so useful. It is so much easier to guarantee a single iteration of a project within a reasonable, established time period, and then re-evaluate from there in iterations. It's the best of both worlds: guaranteed deliverables that can be established in advance, and a relatively accomodating schedule.
+
+I consider myself lucky that so early in my college years, I served my term as scrum master and saw the release of MapInfo Pro 15. As a first work experience, it was a wonderful introduction into the world of modern project management.
