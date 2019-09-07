@@ -1,7 +1,7 @@
 import Typography from "typography"
-import grandViewTheme from "typography-theme-grand-view"
+import moraga from "typography-theme-moraga"
 
-grandViewTheme.overrideThemeStyles = () => {
+moraga.overrideThemeStyles = () => {
   return {
     "a.gatsby-resp-image-link": {
       boxShadow: `none`,
@@ -9,9 +9,7 @@ grandViewTheme.overrideThemeStyles = () => {
   }
 }
 
-delete grandViewTheme.googleFonts
-
-const typography = new Typography(grandViewTheme)
+const typography = new Typography(moraga)
 
 // Hot reload typography in development.
 if (process.env.NODE_ENV !== `production`) {
