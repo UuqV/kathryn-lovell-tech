@@ -3,6 +3,7 @@ import { Link } from "gatsby"
 
 import Bio from "../components/bio"
 import { rhythm, scale } from "../utils/typography"
+import * as colors from "../colors.json"
 
 class Layout extends React.Component {
   render() {
@@ -23,6 +24,7 @@ class Layout extends React.Component {
             style={{
               ...scale(1.5),
               alignSelf: `center`,
+              color: colors.h1,
               marginBottom: rhythm(1.5),
               marginTop: 0,
             }}
@@ -71,19 +73,10 @@ class Layout extends React.Component {
       <div
         style={{
           backgroundImage: `linear-gradient(to bottom right, #FF6F61, yellow)`,
-          padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
         }}
       >
         <header>{header}</header>
-        <main
-          style={{
-            display: `flex`,
-            flexFlow: `column wrap`,
-            height: `200vh`,
-          }}
-        >
-          {children}
-        </main>
+        <main>{children}</main>
         <footer>
           © {new Date().getFullYear()}, Built with
           {` `}

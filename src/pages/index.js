@@ -13,40 +13,49 @@ class BlogIndex extends React.Component {
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
-        <SEO title="All posts" />
-        {posts.map(({ node }) => {
-          const title = node.frontmatter.title || node.fields.slug
-          return (
-            <article
-              key={node.fields.slug}
-              style={{
-                paddingBottom: `20px`,
-                padding: `10px`,
-                width: `calc(25% - 10px)`,
-              }}
-            >
-              <header>
-                <h3
-                  style={{
-                    marginBottom: rhythm(1 / 4),
-                  }}
-                >
-                  <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
-                    {title}
-                  </Link>
-                </h3>
-                <small>{node.frontmatter.date}</small>
-              </header>
-              <section>
-                <p
-                  dangerouslySetInnerHTML={{
-                    __html: node.frontmatter.description || node.excerpt,
-                  }}
-                />
-              </section>
-            </article>
-          )
-        })}
+        <div style={{ height: `100vh`, background: `rgb(21, 88, 112)` }}></div>
+        <div
+          style={{
+            display: `flex`,
+            flexFlow: `column wrap`,
+            height: `200vh`,
+          }}
+        >
+          <SEO title="All posts" />
+          {posts.map(({ node }) => {
+            const title = node.frontmatter.title || node.fields.slug
+            return (
+              <article
+                key={node.fields.slug}
+                style={{
+                  paddingBottom: `20px`,
+                  padding: `10px`,
+                  width: `calc(25% - 10px)`,
+                }}
+              >
+                <header>
+                  <h3
+                    style={{
+                      marginBottom: rhythm(1 / 4),
+                    }}
+                  >
+                    <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
+                      {title}
+                    </Link>
+                  </h3>
+                  <small>{node.frontmatter.date}</small>
+                </header>
+                <section>
+                  <p
+                    dangerouslySetInnerHTML={{
+                      __html: node.frontmatter.description || node.excerpt,
+                    }}
+                  />
+                </section>
+              </article>
+            )
+          })}
+        </div>
       </Layout>
     )
   }
