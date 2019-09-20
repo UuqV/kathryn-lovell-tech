@@ -17,8 +17,7 @@ class BlogIndex extends React.Component {
         <div
           style={{
             display: `flex`,
-            flexFlow: `column wrap`,
-            height: `200vh`,
+            flexFlow: `row wrap`,
           }}
         >
           <SEO title="All posts" />
@@ -28,9 +27,9 @@ class BlogIndex extends React.Component {
               <article
                 key={node.fields.slug}
                 style={{
-                  paddingBottom: `20px`,
-                  padding: `10px`,
-                  width: `calc(25% - 10px)`,
+                  padding: `1em`,
+                  paddingBottom: `1.5em`,
+                  flex: `1 0 33%`,
                 }}
               >
                 <header>
