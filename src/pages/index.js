@@ -17,7 +17,7 @@ class BlogIndex extends React.Component {
         <div
           style={{
             display: `flex`,
-            flexFlow: `row wrap`,
+            flexFlow: `row wrap-reverse`,
           }}
         >
           <SEO title="All posts" />
@@ -69,7 +69,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(sort: { fields: [frontmatter___date], order: ASC }) {
       edges {
         node {
           excerpt
