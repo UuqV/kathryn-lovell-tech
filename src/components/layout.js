@@ -24,7 +24,6 @@ class Layout extends React.Component {
             style={{
               ...scale(1.5),
               alignSelf: `center`,
-              color: colors.h1,
               marginBottom: rhythm(1.5),
               marginTop: 0,
             }}

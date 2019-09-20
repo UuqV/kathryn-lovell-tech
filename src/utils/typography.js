@@ -1,10 +1,14 @@
 import Typography from "typography"
 import moraga from "typography-theme-moraga"
+import * as colors from "../colors.json"
 
 moraga.overrideThemeStyles = () => {
   return {
     "a.gatsby-resp-image-link": {
       boxShadow: `none`,
+    },
+    "h1,h2": {
+      color: colors.h1,
     },
   }
 }
