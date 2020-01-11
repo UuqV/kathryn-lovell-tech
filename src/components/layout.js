@@ -3,7 +3,6 @@ import { Link } from "gatsby"
 
 import Bio from "../components/bio"
 import { rhythm, scale } from "../utils/typography"
-import * as colors from "../colors.json"
 
 class Layout extends React.Component {
   render() {

@@ -8,16 +8,22 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Image from "gatsby-image"
+import colors from "../colors"
 
 import { rhythm } from "../utils/typography"
 
 const Bio = () => {
   const data = useStaticQuery(graphql`
     query BioQuery {
-      avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
+      avatar: file(absolutePath: { regex: "/profile500x752.jpeg/" }) {
         childImageSharp {
-          fixed(width: 200, height: 200) {
-            ...GatsbyImageSharpFixed
+          fluid(quality: 100, maxWidth: 1600) {
+            src
+            srcSet
+            originalImg
+            originalName
+            aspectRatio
+            sizes
           }
         }
       }
@@ -41,22 +47,27 @@ const Bio = () => {
       }}
     >
       <Image
-        fixed={data.avatar.childImageSharp.fixed}
+        fluid={data.avatar.childImageSharp.fluid}
         alt={author}
         style={{
           marginRight: rhythm(1 / 2),
           marginBottom: 0,
-          minWidth: 50,
+          minWidth: 500,
         }}
         imgStyle={{}}
       />
-      <p>
+      <h2
+        style={{
+          color: colors.h2,
+          fontWeight: 300,
+        }}
+      >
         Frontend Smith in NYC. Managing where Art, Science & Craft meet.
         {` `}
         <a href={`https://www.linkedin.com/in/${social.linkedin}/`}>
           Plug something
         </a>
-      </p>
+      </h2>
     </div>
   )
 }

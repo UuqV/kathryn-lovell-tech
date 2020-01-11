@@ -29,7 +29,7 @@ class BlogIndex extends React.Component {
                 key={node.fields.slug}
                 style={{
                   padding: `1em`,
-                  paddingBottom: `1.5em`,
+                  paddingBottom: `0`,
                   flex: `1 0 33%`,
                 }}
               >

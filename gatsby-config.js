@@ -29,9 +29,6 @@ module.exports = {
         plugins: [
           {
             resolve: `gatsby-remark-images`,
-            options: {
-              maxWidth: 590,
-            },
           },
           {
             resolve: `gatsby-remark-responsive-iframe`,
@@ -61,7 +58,7 @@ module.exports = {
         name: `Kathryn Lovell`,
         short_name: `GatsbyJS`,
         start_url: `/`,
-        background_color: `#ffffff`,
+        background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
         icon: `content/assets/gatsby-icon.png`,
