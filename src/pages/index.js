@@ -2,6 +2,7 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout"
+import Hero from "../components/hero"
 import SEO from "../components/seo"
 import { rhythm } from "../utils/typography"
 
@@ -13,7 +14,7 @@ class BlogIndex extends React.Component {
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
-        <div style={{ height: `100vh`, background: `rgb(21, 88, 112)` }}></div>
+        <Hero />
         <div
           style={{
             display: `flex`,
