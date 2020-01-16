@@ -44,6 +44,7 @@ const Bio = () => {
       style={{
         display: `flex`,
         marginBottom: rhythm(2.5),
+        boxShadow: `0px 0px 20px 0px`,
       }}
     >
       <Image
@@ -63,16 +64,17 @@ const Bio = () => {
           display: `flex`,
           maxWidth: `60vw`,
           flexDirection: `column`,
+          padding: `1em`,
+          fontWeight: 300,
+          color: colors.h2,
+          textAlign: `right`,
         }}
       >
-        <h2
-          style={{
-            fontWeight: 300,
-          }}
-        >
+        <h2>
           Frontend Engineer in NYC. Managing where Art, Science & Craft meet.
           {` `}
         </h2>
+        <p>I like graphs whether map, line, or planar embedding.</p>
         <span>
           {" "}
           <a href={`https://www.linkedin.com/in/${social.linkedin}/`}>

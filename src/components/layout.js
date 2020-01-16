@@ -1,7 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
 
-import Bio from "../components/bio"
 import { rhythm, scale } from "../utils/typography"
 
 class Layout extends React.Component {
