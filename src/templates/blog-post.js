@@ -23,7 +23,11 @@ class BlogPostTemplate extends React.Component {
           title={post.frontmatter.title}
           description={post.frontmatter.description || post.excerpt}
         />
-        <article>
+        <article
+          style={{
+            margin: `5em`,
+          }}
+        >
           <header>
             <h1
               style={{
@@ -56,9 +60,9 @@ class BlogPostTemplate extends React.Component {
             style={{
               display: `flex`,
               flexWrap: `wrap`,
-              justifyContent: `flex-start`,
+              justifyContent: `space-between`,
               listStyle: `none`,
-              padding: 0,
+              margin: `5em`,
             }}
           >
             <li>

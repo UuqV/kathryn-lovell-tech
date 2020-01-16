@@ -51,7 +51,6 @@ const Bio = () => {
         fluid={data.avatar.childImageSharp.fluid}
         alt={author}
         style={{
-          marginRight: rhythm(1 / 2),
           marginBottom: 0,
           minWidth: `100px`,
           flex: `1 0 40vw`,
@@ -78,10 +77,13 @@ const Bio = () => {
         <p>I like graphs whether map, line, or planar embedding.</p>
         <p>
           I've built data discovery systems as well as platforms for push
-          content.
+          content. Looking forward to guiding ever larger scale projects in the
+          future.
         </p>
-        <p></p>
-        <h2>Habitually preparing for the next opportunity.</h2>
+        <h2>
+          Committed to iterative improvement, habitually preparing for the next
+          opportunity.
+        </h2>
         <span>
           {" "}
           <a href={`https://www.linkedin.com/in/${social.linkedin}/`}>
