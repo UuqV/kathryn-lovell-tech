@@ -38,9 +38,6 @@ class Layout extends React.Component {
               {title}
             </Link>
           </h1>
-          <div>
-            <h2 style={{ textAlign: `right` }}>Latest</h2>
-          </div>
         </div>
       )
     } else {
@@ -63,7 +60,6 @@ class Layout extends React.Component {
               {title}
             </Link>
           </h3>
-          <Bio />
         </>
       )
     }
@@ -71,6 +67,7 @@ class Layout extends React.Component {
       <div
         style={{
           backgroundImage: `linear-gradient(to bottom right, #FF6F61, yellow)`,
+          minHeight: `100vh`,
         }}
       >
         <header>{header}</header>

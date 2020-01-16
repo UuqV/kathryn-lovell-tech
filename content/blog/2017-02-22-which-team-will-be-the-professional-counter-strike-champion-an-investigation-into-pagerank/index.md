@@ -1,5 +1,5 @@
 ---
-title: "Which team will be the Professional Counter Strike Champion? // An investigation into PageRank."
+title: "Which team will be the Professional Counter Strike Champion?"
 description: "An investigation into PageRank."
 date: "2017-02-22"
 ---

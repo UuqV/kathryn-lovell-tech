@@ -7,8 +7,11 @@ moraga.overrideThemeStyles = () => {
     "a.gatsby-resp-image-link": {
       boxShadow: `none`,
     },
-    "h1,h2,h3,a": {
+    "h1,h3,a": {
       color: colors.h1,
+    },
+    h2: {
+      color: colors.h2,
     },
   }
 }

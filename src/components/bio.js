@@ -9,8 +9,8 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Image from "gatsby-image"
 import colors from "../colors"
-
 import { rhythm } from "../utils/typography"
+import LinkedIn from "../../content/assets/icons/linkedin.svg"
 
 const Bio = () => {
   const data = useStaticQuery(graphql`
@@ -52,22 +52,40 @@ const Bio = () => {
         style={{
           marginRight: rhythm(1 / 2),
           marginBottom: 0,
-          minWidth: 500,
+          minWidth: `100px`,
+          width: `40vw`,
+          height: `100vh`,
         }}
         imgStyle={{}}
       />
-      <h2
+      <div
         style={{
-          color: colors.h2,
-          fontWeight: 300,
+          display: `flex`,
+          maxWidth: `60vw`,
+          flexDirection: `column`,
         }}
       >
-        Frontend Smith in NYC. Managing where Art, Science & Craft meet.
-        {` `}
-        <a href={`https://www.linkedin.com/in/${social.linkedin}/`}>
-          Plug something
-        </a>
-      </h2>
+        <h2
+          style={{
+            fontWeight: 300,
+          }}
+        >
+          Frontend Engineer in NYC. Managing where Art, Science & Craft meet.
+          {` `}
+        </h2>
+        <span>
+          {" "}
+          <a href={`https://www.linkedin.com/in/${social.linkedin}/`}>
+            <LinkedIn
+              style={{
+                width: `2em`,
+                height: `2em`,
+                fill: colors.h2,
+              }}
+            />
+          </a>
+        </span>
+      </div>
     </div>
   )
 }
