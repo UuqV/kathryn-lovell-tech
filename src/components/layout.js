@@ -13,17 +13,13 @@ class Layout extends React.Component {
       header = (
         <div
           style={{
-            display: `grid`,
-            gridTemplateColumns: `50% 50%`,
             height: `100vh`,
+            paddingTop: `40vh`,
           }}
         >
           <h1
             style={{
               ...scale(1.5),
-              alignSelf: `center`,
-              marginBottom: rhythm(1.5),
-              marginTop: 0,
             }}
           >
             <Link

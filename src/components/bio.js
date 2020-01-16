@@ -54,15 +54,16 @@ const Bio = () => {
           marginRight: rhythm(1 / 2),
           marginBottom: 0,
           minWidth: `100px`,
+          flex: `1 0 40vw`,
           width: `40vw`,
-          height: `100vh`,
+          minHeight: `100vh`,
         }}
         imgStyle={{}}
       />
       <div
         style={{
           display: `flex`,
-          maxWidth: `60vw`,
+          flex: `1 0 60vw`,
           flexDirection: `column`,
           padding: `1em`,
           fontWeight: 300,
@@ -75,6 +76,12 @@ const Bio = () => {
           {` `}
         </h2>
         <p>I like graphs whether map, line, or planar embedding.</p>
+        <p>
+          I've built data discovery systems as well as platforms for push
+          content.
+        </p>
+        <p></p>
+        <h2>Habitually preparing for the next opportunity.</h2>
         <span>
           {" "}
           <a href={`https://www.linkedin.com/in/${social.linkedin}/`}>
