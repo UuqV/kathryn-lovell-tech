@@ -74,11 +74,10 @@ const Bio = () => {
           Frontend Engineer in NYC. Managing where Art, Science & Craft meet.
           {` `}
         </h2>
-        <p>I like graphs whether map, line, or planar embedding.</p>
+        <p>I love graphs whether geospatial, linear, or unembeddable.</p>
         <p>
           I've built data discovery systems as well as platforms for push
-          content. Looking forward to guiding ever larger scale projects in the
-          future.
+          content. Looking forward to guiding ever larger scale projects.
         </p>
         <h2>
           Committed to iterative improvement, habitually preparing for the next

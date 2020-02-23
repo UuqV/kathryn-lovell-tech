@@ -2,6 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 
 import { rhythm, scale } from "../utils/typography"
+import colors from "../colors"
 
 class Layout extends React.Component {
   render() {
@@ -14,39 +15,50 @@ class Layout extends React.Component {
         <div
           style={{
             height: `100vh`,
-            paddingTop: `40vh`,
             display: `flex`,
             justifyContent: `space-between`,
+            flexFlow: `row wrap`,
           }}
         >
-          <h1
+          <div
             style={{
-              ...scale(1.5),
-              padding: rhythm(1 / 4),
+              paddingTop: `20%`,
+              flex: `1 0 60%`,
             }}
           >
-            <Link
+            <h1
               style={{
-                boxShadow: `none`,
-                textDecoration: `none`,
-                color: `inherit`,
+                ...scale(1.75),
+                padding: rhythm(1 / 4),
               }}
-              to={`/`}
             >
-              {title}
-            </Link>
-          </h1>
+              <Link
+                style={{
+                  boxShadow: `none`,
+                  textDecoration: `none`,
+                  color: `inherit`,
+                }}
+                to={`/`}
+              >
+                {title}
+              </Link>
+            </h1>
+          </div>
           <article
             key={post.fields.slug}
             style={{
               padding: `1em`,
-              paddingBottom: `0`,
-              flex: `0 1 33%`,
+              paddingTop: `10%`,
+              flex: `1 2 40%`,
             }}
           >
+            <small style={{ color: `#ff5847` }}>
+              Latest - {post.frontmatter.date}
+            </small>
             <header>
               <h3
                 style={{
+                  ...scale(0.5),
                   marginBottom: rhythm(1 / 4),
                 }}
               >
@@ -54,7 +66,6 @@ class Layout extends React.Component {
                   {post.frontmatter.title}
                 </Link>
               </h3>
-              <small>{post.frontmatter.date}</small>
             </header>
             <section>
               <p
