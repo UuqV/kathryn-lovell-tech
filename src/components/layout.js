@@ -22,6 +22,7 @@ class Layout extends React.Component {
           <h1
             style={{
               ...scale(1.5),
+              padding: rhythm(1 / 4),
             }}
           >
             <Link
@@ -71,7 +72,7 @@ class Layout extends React.Component {
           <h3
             style={{
               fontFamily: `Montserrat, sans-serif`,
-              marginTop: 0,
+              padding: rhythm(1 / 4),
             }}
           >
             <Link
