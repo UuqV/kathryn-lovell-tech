@@ -5,13 +5,14 @@ import Layout from "../components/layout"
 import Hero from "../components/hero"
 import SEO from "../components/seo"
 import { rhythm } from "../utils/typography"
+import "prismjs/themes/prism-tomorrow.css"
 
 class BlogIndex extends React.Component {
   render() {
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
     const posts = data.allMarkdownRemark.edges
-    console.log(posts[0])
+
     return (
       <Layout
         location={this.props.location}
@@ -22,7 +23,7 @@ class BlogIndex extends React.Component {
         <div
           style={{
             display: `flex`,
-            flexFlow: `row wrap-reverse`,
+            flexFlow: `row wrap`,
           }}
         >
           <SEO title="All posts" />

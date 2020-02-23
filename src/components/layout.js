@@ -16,6 +16,7 @@ class Layout extends React.Component {
             height: `100vh`,
             paddingTop: `40vh`,
             display: `flex`,
+            justifyContent: `space-between`,
           }}
         >
           <h1
@@ -39,9 +40,21 @@ class Layout extends React.Component {
             style={{
               padding: `1em`,
               paddingBottom: `0`,
-              flex: `1 0 33%`,
+              flex: `0 1 33%`,
             }}
           >
+            <header>
+              <h3
+                style={{
+                  marginBottom: rhythm(1 / 4),
+                }}
+              >
+                <Link style={{ boxShadow: `none` }} to={post.fields.slug}>
+                  {post.frontmatter.title}
+                </Link>
+              </h3>
+              <small>{post.frontmatter.date}</small>
+            </header>
             <section>
               <p
                 dangerouslySetInnerHTML={{
