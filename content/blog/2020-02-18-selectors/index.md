@@ -8,6 +8,7 @@ Everybody loves a good visualization. I built one that knocked it out of the par
 Since these filters resemble simple database operations, at first I thought to implement these filters on the server side. In general I try to do as much data shaping as possible on the server side to save the client’s computer from unnecessary rendering. It might even be good to cache the results of these filters as well. However, since these requests happen separately from the initial page load, it would be way more expensive in terms of round-trip network time to filter this data on the server side.
 
 So now we know roughly what our requirements are. We must be able to filter by a complex set of requirements, and we must do so on the client side. So where do we filter the data? Luckily, we have a Redux store. Surely it should be able to help us manage this complex state. In Redux we usually transform state as a result of an action inside the reducers. So to implement a filter, we might write a reducer like this:
+
 ```
 case FILTER_APPLES:
     return {
@@ -21,19 +22,19 @@ case FILTER_APPLES:
 This way, you have a set of your filtered items that was created only once, that all your components can use. But you also want to be able to put them back. Maybe you could do something like this?
 
 ```
-    case FILTER_APPLES:
-        return {
-            ...state,
-            filteredShipments: _.filter(state.shipments, shipment => {
-                return shipment.type != 'Apples';
-            });
-        };
-    case ADD_APPLES:
-        return {
-            ...state,
-            filteredShipments: state.shipments
-        };
+case FILTER_APPLES:
+    return {
+        ...state,
+        filteredShipments: _.filter(state.shipments, shipment => {
+            return shipment.type != 'Apples';
+        });
     };
+case ADD_APPLES:
+    return {
+        ...state,
+        filteredShipments: state.shipments
+    };
+};
 ```
 
 This would work for just one filter. But with the Oranges filter, the Date filter, you’d have to somehow check each one in the reducer for each one. This is also screaming of a redux antipattern: you’re not really supposed to read state in the reducers, just write, and your data could be out of stale here.
@@ -87,7 +88,6 @@ const getFilteredList = createSelector(
        return _.difference(shipments, apples, oranges);
    }
 );
-
 ```
 
 After importing this function, we can then call it in mapStateToProps like so:
