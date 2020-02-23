@@ -5,7 +5,7 @@ import { rhythm, scale } from "../utils/typography"
 
 class Layout extends React.Component {
   render() {
-    const { location, title, children } = this.props
+    const { location, title, children, post } = this.props
     const rootPath = `${__PATH_PREFIX__}/`
     let header
 
@@ -15,6 +15,7 @@ class Layout extends React.Component {
           style={{
             height: `100vh`,
             paddingTop: `40vh`,
+            display: `flex`,
           }}
         >
           <h1
@@ -33,6 +34,22 @@ class Layout extends React.Component {
               {title}
             </Link>
           </h1>
+          <article
+            key={post.fields.slug}
+            style={{
+              padding: `1em`,
+              paddingBottom: `0`,
+              flex: `1 0 33%`,
+            }}
+          >
+            <section>
+              <p
+                dangerouslySetInnerHTML={{
+                  __html: post.frontmatter.description || post.excerpt,
+                }}
+              />
+            </section>
+          </article>
         </div>
       )
     } else {

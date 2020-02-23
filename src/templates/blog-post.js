@@ -16,7 +16,7 @@ class BlogPostTemplate extends React.Component {
         location={this.props.location}
         title={siteTitle}
         style={{
-          minHeight: `100vh`,
+          minHeight: `100%`,
         }}
       >
         <SEO
@@ -25,7 +25,8 @@ class BlogPostTemplate extends React.Component {
         />
         <article
           style={{
-            margin: `5em`,
+            minWidth: `30%`,
+            maxWidth: `80%`,
           }}
         >
           <header>
