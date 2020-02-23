@@ -17,6 +17,7 @@ class BlogPostTemplate extends React.Component {
         title={siteTitle}
         style={{
           minHeight: `100%`,
+          align: `center`,
         }}
       >
         <SEO
@@ -25,8 +26,7 @@ class BlogPostTemplate extends React.Component {
         />
         <article
           style={{
-            minWidth: `30%`,
-            maxWidth: `80%`,
+            margin: `10%`,
           }}
         >
           <header>
