@@ -3,7 +3,7 @@ title: "How to Implement Dynamic Client-Side Data Filtering with Selectors"
 date: "2020-02-18"
 ---
 
-Everybody loves a good visualization. I built one that knocked it out of the park for a client recently. I figure you know your dataset is sticky when your clients immediately want more. So naturally, when my product owner came back to me with a set of fresh requests for various UI knobs the client can use to explore the data, we were ready to deliver it to them ASAP. We would create a set of filter panels, to select data much in the same way you could with any SQL query.
+Everybody loves a good visualization. I figure you know your dataset is sticky when your clients immediately want more. So naturally, when my product owner came back to me with a set of fresh requests for various UI knobs the client can use to explore the data, we were ready to deliver it to them ASAP. We would create a set of filter panels, to select data much in the same way you could with any SQL query.
 
 Since these filters resemble simple database operations, at first I thought to implement these filters on the server side. In general I try to do as much data shaping as possible on the server side to save the client’s computer from unnecessary rendering. It might even be good to cache the results of these filters as well. However, since these requests happen separately from the initial page load, it would be way more expensive in terms of round-trip network time to filter this data on the server side.
 
