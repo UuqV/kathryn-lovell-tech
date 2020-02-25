@@ -53,7 +53,7 @@ const Bio = () => {
         style={{
           marginBottom: 0,
           minWidth: `100px`,
-          flex: `1 0 40vw`,
+          flex: `1 1 40vw`,
           width: `40vw`,
           minHeight: `100vh`,
         }}
@@ -62,7 +62,7 @@ const Bio = () => {
       <div
         style={{
           display: `flex`,
-          flex: `1 0 60vw`,
+          flex: `1 1 60vw`,
           flexDirection: `column`,
           padding: `1em`,
           fontWeight: 300,

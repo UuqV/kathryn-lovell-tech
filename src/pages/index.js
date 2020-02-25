@@ -26,7 +26,7 @@ class BlogIndex extends React.Component {
             flexFlow: `row wrap`,
           }}
         >
-          <SEO title="All posts" />
+          <SEO title="Kathryn Lovell - All posts" />
           {posts.map(({ node }) => {
             const title = node.frontmatter.title || node.fields.slug
             return (
