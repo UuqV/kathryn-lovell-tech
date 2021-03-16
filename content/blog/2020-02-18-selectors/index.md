@@ -37,7 +37,7 @@ case ADD_APPLES:
 };
 ```
 
-This would work for just one filter. But with the Oranges filter, the Date filter, you’d have to somehow check each one in the reducer for each one. This is also screaming of a redux antipattern: you’re not really supposed to read state in the reducers, just write, and your data could be out of stale here.
+This would work for just one filter. But with the Oranges and the Date filter, you’d have to somehow check each one in the reducer for each one. This is also screaming of a redux antipattern: you’re not really supposed to read state in the reducers, just write, and your data could be stale here.
 
 So what in the world do we do? What I found on the subject confirms the suspicion of an anti-pattern: our state is our “source of truth,” we shouldn’t eliminate state on the basis of a temporary filter. The only thing we need the state to store is whether the filter is on or not. The filter should indeed be part of the render cycle for the component, and the function responsible for preparing the state for a view is good old mapDispatchToProps:
 
@@ -59,7 +59,7 @@ function mapStateToProps(state) {
 
 You could nest several filter functions this way. However, we run back into the original problem: we don’t want to run several nested filters every time a component re-renders. That, and we might want to use it in more than one component.
 
-This is where the all-powerful reselect extension comes into play. They’re specifically meant to produce derived data from the state. In addition to allowing you to modularize the functionality in your mapStateToProps, selectors do not get computed until one of their arguments change. This means that we can rewrite our filter functionality to look like this:
+This is where the all-powerful reselect extension comes into play. They’re specifically meant to produce derived data from the state. In addition to allowing you to modularize the functionality in your mapStateToProps, <b>selectors do not get computed until one of their arguments change</b>. This means that we can rewrite our filter functionality to look like this:
 
 ```
 const getApples = state => {
@@ -71,7 +71,7 @@ const getApples = state => {
        return [];
    }
 };
- 
+
 const getOranges = state => {
    if (state.filterOranges) {
        return _.filter(shipments, shipment => {
@@ -81,7 +81,7 @@ const getOranges = state => {
        return [];
    }
 };
- 
+
 const getFilteredList = createSelector(
    [getShipments, getApples, getOranges],
    (shipments, apples, oranges) => {
@@ -100,9 +100,9 @@ function mapStateToProps(state) {
 }
 ```
 
-This solves our code repetition problem. (Using _.difference to remove your filtered sets will work as long as you don’t have any duplicates.) Also, this function won’t run unless the state actually changes.
+This solves our code repetition problem. (Using \_.difference to remove your filtered sets will work as long as you don’t have any duplicates.) Also, this function won’t run unless the state actually changes.
 
-But wait, if you dropped a couple of console.logs in here, you’d notice that whenever the Apples filter runs, the Oranges filter also runs! That’s not much different than before. If anything changes in the state, these filters still have to run again. How do we get the level of specificity afforded to us by reducers?
+But wait! If you dropped a couple of console.logs in here, you’d notice that whenever the Apples filter runs, the Oranges filter also runs! That’s not much different than before. If anything changes in the state, these filters still have to run again. How do we get the level of specificity afforded to us by reducers?
 
 Turns out this code needs one more thing to really shine. When we use the createSelector() function, the selector then listens for one of its arguments to change. Since the argument functions require the whole state, the selector calls those functions whenever the whole state changes. We need to give these functions just a piece of state instead, like so:
 
@@ -123,7 +123,7 @@ const getRisk = createSelector([getShipments, getFilterOranges], (shipments, fil
        return [];
    }
 };
- 
+
 const getFilteredList = createSelector(
    [getShipments, getApples, getOranges],
    (shipments, apples, oranges) => {

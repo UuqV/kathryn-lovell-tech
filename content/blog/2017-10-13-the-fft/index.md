@@ -1,12 +1,12 @@
 ---
-title: "The Fast Fourier Transform with R and Web Audio"
+title: "The Fast Fourier Transform: Composite Audio Visualizer with R and Web Audio"
 date: "2017-10-13"
 coverImage: "download-1.png"
 ---
 
-The Fast Fourier Transform is another indispensible fundamental in most signal processing. Audio signals are no exception.
+The Fast Fourier Transform is an indispensible fundamental in most signal processing. Audio signals are no exception.
 
-Fundamentally, the FFT is used to graph a signal with respect to frequency, rather than its original domain. It allows us to separate different parts of our signal from each other, thus we can create a "tone spectrum" when we apply it to audio.
+Fundamentally, the FFT is used to graph a signal with respect to frequency, as opposed to its original domain. It allows us to separate different components of our signal from each other, thus we can create a "tone spectrum" when we apply it to audio.
 
 Ableton's "Spectrum" audio effect does this in real time for you. Your output looks like this:
 
@@ -26,14 +26,15 @@ We can analyize the quality of the sound file simply by looking at the tone spec
 
 ![16khzcutoff.png](images/16khzcutoff.png)
 
-This is the [frequency cutoff at 128 kbps with mp3 compression](https://thesession.org/discussions/19642). From this you can infer the original quality of your file. If your file was originally a 128 kbps mp3, was then converted to a wav (which is lossless), and that wav was compressed back into a 256 kbps mp3, the file metadata would say that the bitrate was 256 kbps. Although the final mp3 file may have the capacity for another 128 kbps, the original file would have had no data to fill those remaining slots. You can tell if those slots are empty--and if your file browser is lying to you--by using the FFT to look at them.
+This is the [frequency cutoff at 128 kbps with mp3 compression](https://thesession.org/discussions/19642). From this you can infer the original quality of your file. If your file was originally a 128 kbps mp3, was then converted to a wav (which is lossless) and compressed back into a 256 kbps mp3, the file metadata would say that the bitrate was 256 kbps. Although the final mp3 file may have the capacity for another 128 kbps, the original file would have had no data to fill those remaining slots. You can tell if those slots are empty--and if your file browser is lying to you--by using the FFT to look at them.
 
 ## In R
 
-Let's find out how we can make this. To start processing our sound clip in R, we do the same thing we did [when we extracted the amplitude data from a sound file](https://kathrynlovell.tech/2017/09/23/audio-frequency-and-amplitude-maps-in-r-vs-the-web-audio-api/). We get the time domain and amplitude of our audio file by dividing the array of samples by the sample rate and, since the .wav format has the audio values mapped to integers, convert to float values.
+Let's find out how we can make this. To start processing our sound clip in R, we do the same thing we did [when we extracted the amplitude data from a sound file](https://kathrynlovell.tech/2017-09-23-audio-frequency-and-amplitude-maps-in-r-vs-the-web-audio-api/). We get the time domain and amplitude of our audio file by dividing the array of samples by the sample rate and (since the wav format has the audio values mapped to integers) convert to float values.
 
 ```
-s1 <- sndObj@left[1:(88200)] / sndObj@samp.rate s1 <- s1 / 2^(sndObj@bit -1)
+s1 <- sndObj@left[1:(88200)] / sndObj@samp.rate
+s1 <- s1 / 2^(sndObj@bit -1)
 
 timeArray <- (1:(88200)) / sndObj@samp.rate
 ```
@@ -72,7 +73,7 @@ plot(x, y, type='l', col='black', xlab='Frequency (kHz)', ylab='Power (dB)')
 
 This certainly looks like frequency readout from the file--we can see the drastic dip at 16Hz we saw before--but this doesn't much look like our Ableton output.
 
-Ableton and Bell know something we don't. Likely much like you, when I listen to a sound I care a ton about what's happening in the 10-5,000Hz range, and especially the 10-100Hz range, that's where all the bass and kicks are. Relatively you and I don't care so much about the 15,000Hz-20,000Hz range because surprise! most human perception response curves are logarithmic. Naturally, then, we should give our x-axis a logarithmic scale instead, it'll give us a better view of the bass tones. We do this in R simply by adding the argument log='x', denoting that the x-axis of the graph is in the logarithmic scale, like so:
+Ableton and Bell know something we don't. Likely much like you, when I listen to a sound I care a ton about what's happening in the 10-5,000Hz range, and especially the 10-100Hz range, that's where all the bass and kicks are. Relatively you and I don't care so much about the 15,000Hz-20,000Hz range because (whoa!) most human perception response curves are logarithmic. Naturally, then, we should give our x-axis a logarithmic scale instead, it'll give us a better view of the bass tones. We do this in R simply by adding the argument log='x', denoting that the x-axis of the graph is in the logarithmic scale, like so:
 
 ```
 plot(x, y, log='x', type='l', col='black', xlab='Frequency (kHz)', ylab='Power (dB)')
@@ -123,7 +124,7 @@ Simply tell the analyzer how many frequency bins you want, and we'll be in busin
 analyser.fftSize = 512; var bufferLength = analyser.fftSize;
 ```
 
-While the R fft function can be performed on any size data range, the Web Audio API fast fourier transform function returns the fft on simply the instantaneous time domain. In other words, where before the data from the entire sound clip and put it into one frequency graph, giving us more of a total count in our frequency bins. But that Web Audio only gives us the instantaneous transform will come in handy for what we will do.
+While the R fft function can be performed on any size data range, the Web Audio API fast fourier transform function returns the fft on simply the instantaneous time domain. In other words, where before the data from the entire sound clip and put it into one frequency graph, giving us more of a total count in our frequency bins. But the fact that Web Audio only gives us the instantaneous transform will come in handy for what we're about to do.
 
 ```
 var overallAmp = new Float32Array(analyser.fftSize);
@@ -138,16 +139,17 @@ var fftValues = new Float32Array(analyser.frequencyBinCount);
 analyser.getFloatFrequencyData(fftValues);
 ```
 
-This is a useful difference, as this allows a Web Audio user to create a fftvisualization completely in sync with the page's Audio Context. The transform created by this function will show us the frequencies we would hear in real time.
+This is a useful difference, as this allows a Web Audio user to create an fft visualization completely in sync with the page's Audio Context. The transform created by this function will show us the frequencies we would hear in real time.
 
 ### Rendering our Multi-Dimensional Visualizer
 
-However you source your audio in javascript, make sure that you pass it to your Audio Context, and that everything within the scope of the decodedData. You can do this like so:
+However you source your audio in javascript, make sure that you pass it to your Audio Context, and that everything is within the scope of the decodedData. You can do this like so:
 
 ```
 var source = audioContext.decodeAudioData(e.target.result, function(decodedData) {
     source = audioContext.createBufferSource();
-    source.buffer = decodedData; source.connect(analyser);
+    source.buffer = decodedData;
+    source.connect(analyser);
     source.loop = true;
     source.start();
 

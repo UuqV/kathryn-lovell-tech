@@ -1,5 +1,5 @@
 ---
-title: "Audio Amplitude Maps in R and Applications"
+title: "Audio Amplitude Vizualization in R and Web Applications"
 date: "2017-09-23"
 ---
 
