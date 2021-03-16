@@ -9,7 +9,7 @@ For example, I will use the tune [I Am The Joker](https://open.spotify.com/album
 
 ![StatusBar](images/statusbar.jpg)
 
-I'm going to zoom in to the middle of the song, where most of the action is here. Now we can start to see of individual instruments in our techno track.
+I'm going to zoom in to the middle of the song, where most of the action is here. Now we can start to see evidence of individual instruments in our techno track.
 
 ![Zoom.png](images/zoom.png)
 
