@@ -44,7 +44,7 @@ The values in s1 correspond to the amplitude of the waveform, the range of our f
 p <- fft(s1)
 ```
 
-So, right now p holds our new y-axis. But these amplitude values mean something only to each other. Let's convert it to something more meaningful. A _decibel_ is one tenth of a _bel_, an amplitude unit defined for sound as the log<sub>10</sub> of the intensity of the wave [relative to some](https://www.dsprelated.com/freebooks/mdft/Decibels.html) [reference intensity](https://www.dsprelated.com/freebooks/mdft/Decibels.html).\_
+So, right now p holds our new y-axis. But these amplitude values mean something only to each other. Let's convert it to something more meaningful. A _decibel_ is one tenth of a _bel_, an amplitude unit defined for sound as the log<sub>10</sub> of the intensity of the wave [relative to some](https://www.dsprelated.com/freebooks/mdft/Decibels.html) [reference intensity](https://www.dsprelated.com/freebooks/mdft/Decibels.html).
 
 ![img1932.png](images/img1932.png)
 
