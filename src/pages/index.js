@@ -5,7 +5,6 @@ import Layout from "../components/layout"
 import Hero from "../components/hero"
 import SEO from "../components/seo"
 import { rhythm } from "../utils/typography"
-import "prismjs/themes/prism-tomorrow.css"
 
 class BlogIndex extends React.Component {
   render() {

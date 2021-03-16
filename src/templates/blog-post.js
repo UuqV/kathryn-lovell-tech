@@ -38,7 +38,7 @@ class BlogPostTemplate extends React.Component {
             >
               {post.frontmatter.title}
             </h1>
-            <p
+            <small
               style={{
                 ...scale(-1 / 5),
                 display: `block`,
@@ -46,7 +46,7 @@ class BlogPostTemplate extends React.Component {
               }}
             >
               {post.frontmatter.date}
-            </p>
+            </small>
           </header>
           <section dangerouslySetInnerHTML={{ __html: post.html }} />
           <hr

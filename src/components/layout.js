@@ -52,7 +52,7 @@ class Layout extends React.Component {
               flex: `1 2 40%`,
             }}
           >
-            <small style={{ color: `#ff5847` }}>
+            <small>
               Latest - {post.frontmatter.date}
             </small>
             <header>
