@@ -64,25 +64,26 @@ const Bio = () => {
           display: `flex`,
           flex: `1 1 60vw`,
           flexDirection: `column`,
+          justifyContent: `space-around`,
           padding: `1em`,
           fontWeight: 300,
           color: colors.h2,
           textAlign: `right`,
         }}
       >
-        <h2>
+        <h3>
           Frontend Engineer in NYC. Managing where Art, Science & Craft meet.
           {` `}
-        </h2>
+        </h3>
         <p>I love graphs whether geospatial, linear, or unembeddable.</p>
         <p>
           I've built data discovery systems as well as platforms for push
           content. Looking forward to guiding ever larger scale projects.
         </p>
-        <h2>
+        <h3>
           Committed to iterative improvement, habitually preparing for the next
           opportunity.
-        </h2>
+        </h3>
         <span>
           {" "}
           <a href={`https://www.linkedin.com/in/${social.linkedin}/`}>
