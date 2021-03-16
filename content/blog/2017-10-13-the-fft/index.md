@@ -109,7 +109,11 @@ I regret to inform you that this fft trick involves the same amount of math in J
 You can use a Context just like we made in the waveform tutorial. It'll come in handy later anyway. Say you've got an Audio Context set up like such:
 
 ```
-var audioContext = new AudioContext(); var analyser = audioContext.createAnalyser(); analyser.minDecibels = -90; analyser.maxDecibels = -10; analyser.smoothingTimeConstant = 0.85;
+var audioContext = new AudioContext();
+var analyser = audioContext.createAnalyser();
+analyser.minDecibels = -90;
+analyser.maxDecibels = -10;
+analyser.smoothingTimeConstant = 0.85;
 
 ```
 
