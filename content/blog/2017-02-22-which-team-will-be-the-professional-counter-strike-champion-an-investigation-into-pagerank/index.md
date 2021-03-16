@@ -22,33 +22,35 @@ Here's a mathematical overview of the PageRank algorithm:
 
 I coded up this algorithm in Python like so and ran a .csv of the four weeks of the North American Tournament.
 
+```
 def getPageranks(outDegree, inDegree, numIter):
-numVerts = float(len(outDegree))
-pageranks = {}
-pageranksNext = {}
-sumSinks = 0.0
-sumSinksNext = 0.0
+    numVerts = float(len(outDegree))
+    pageranks = {}
+    pageranksNext = {}
+    sumSinks = 0.0
+    sumSinksNext = 0.0
 
     for outVertex in outDegree:
-        pageranks\[outVertex\] = 1.0 / numVerts
-        if (len(outDegree\[outVertex\]) == 1):
-            sumSinks = sumSinks + pageranks\[outVertex\]
+        pageranks[outVertex] = 1.0 / numVerts
+        if (len(outDegree[outVertex]) == 1):
+            sumSinks = sumSinks + pageranks[outVertex]
 
     for i in range(numIter):
         for outVertex in outDegree:
-            pageranksNext\[outVertex\] = sumSinks / numVerts
-            for inVertex in inDegree\[outVertex\]:
-                pageranksNext\[outVertex\] += pageranks\[inVertex\] / len(outDegree\[inVertex\])
-            pageranksNext\[outVertex\] \*= DAMPING\_FACTOR;
-            pageranksNext\[outVertex\] += (1.0 - DAMPING\_FACTOR) / numVerts
+            pageranksNext[outVertex] = sumSinks / numVerts
+            for inVertex in inDegree[outVertex]:
+                pageranksNext[outVertex] += pageranks[inVertex] / len(outDegree[inVertex])
+            pageranksNext[outVertex] *= DAMPING_FACTOR;
+            pageranksNext[outVertex] += (1.0 - DAMPING_FACTOR) / numVerts
 
-            if (len(outDegree\[outVertex\]) == 1):
-                sumSinksNext += pageranksNext\[outVertex\]
+            if (len(outDegree[outVertex]) == 1):
+                sumSinksNext += pageranksNext[outVertex]
 
         pageranks, pageranksNext = pageranksNext, pageranks
         sumSinks = sumSinksNext
         sumSinksNext = 0.0
     return pageranks
+```
 
 This was my output:
 
